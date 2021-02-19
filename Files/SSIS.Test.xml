@@ -1,0 +1,1853 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SSIS.Test</name>
+    </assembly>
+    <members>
+        <member name="T:SSIS.Test.Metadata.ExcludeAttribute">
+            <summary>
+            Instructs the test engine to excludes a test class or an action method.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsObjectProperty">
+            <summary>
+            This class represents a property of a package. Use this class to get and set package properties.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsObject">
+            <summary>
+            This is the base class for all classes that expose Dts functions. 
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObject.GetProperty(System.String)">
+            <summary>
+            Gets a property
+            </summary>
+            <param name="name">Name of the property to get. For example, Disable, Name...</param>
+            <returns>Instance of DtsObjectProperty if found in the package, otherwise null.</returns>
+            <exception cref="T:System.ArgumentException">If a property with a given name is not present, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObject.GetHashCode">
+            <summary>
+            Returns the hash code for this dts object.
+            </summary>
+            <returns>Hash code of the dts object.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObject.Equals(System.Object)">
+            <summary>
+            Determines whether this instance and another specified object have the same value.
+            </summary>
+            <param name="obj">Another instance of an dts object.</param>
+            <returns>True if they are the same, false otherwise.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObject.GetExpression(System.String)">
+            <summary>
+            Gets an expression for the given property name.
+            </summary>
+            <param name="propertyName">Name of a property.</param>
+            <returns>Returns a string that contains the expression for the specified property. Empty means that no expression has been assigned.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObject.SetExpression(System.String,System.String)">
+            <summary>
+            Assigns the specified expression to the property. Specify null to remove an existing expression from the property.
+            </summary>
+            <param name="propertyName">The name of the property to assign the expression to.</param>
+            <param name="expression">The expression.</param>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObject.GetObjectId">
+            <summary>
+            Returns the identifier of an dts object.
+            </summary>
+            <returns>String value representig the identifier.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObject.GetObjectName">
+            <summary>
+            Returns the name of an dts object.
+            </summary>
+            <returns>String value representig the name.</returns>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsObject.Id">
+            <summary>
+            Gets the identifier of an dts object.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsObject.Name">
+            <summary>
+            Gets the name of an dts object.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObjectProperty.SetValue(System.Object)">
+            <summary>
+            Sets a value of the underlying property.
+            </summary>
+            <param name="value">A value to set.</param>
+            <exception cref="T:System.InvalidOperationException">Underlying property is read-only.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObjectProperty.GetValue">
+            <summary>
+            Gets a value of the underlying property.
+            </summary>
+            <returns>An object representing the property value.</returns>
+            <exception cref="T:System.InvalidOperationException">Underlying property is set-only.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObjectProperty.GetObjectId">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsObjectProperty.GetObjectName">
+            <inheritdoc/>
+        </member>
+        <member name="T:SSIS.Test.DataSnapshot">
+            <summary>
+            Base class for all types of data snapshots.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.DataSnapshot.LoadData">
+            <summary>
+            Loads captured data from the file.
+            </summary>
+            <returns>Comma separated values.</returns>
+        </member>
+        <member name="P:SSIS.Test.DataSnapshot.FilePath">
+            <summary>
+            Path to the file where captured data is saved.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.DataSnapshot.ExecutionId">
+            <summary>
+            Uniquely associates data snapshot with the execution.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.DataSnapshot.RowCount">
+            <summary>
+            Count of captured rows in the snapshot.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Collections.TestResultCollection`1">
+            <summary>
+            Represents a list of test results that can be accessed by index.
+            Provides methods to search, sort, and manipulate test results.
+            </summary>
+            <typeparam name="T">Type of elements in the list. It can be either <see cref="T:SSIS.Test.UnitTestResult"/> or <see cref="T:SSIS.Test.LiveTestResult"/>.</typeparam>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsPackage">
+            <summary>
+            This class represents a dts package. Use this class to get state of a package during
+            the execution.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.SetPropertiesForPaths(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Sets values to properties in the package.
+            </summary>
+            <param name="pathValuePairs">List of name-value pairs where name is a property name and value is a property value.</param>
+            <exception cref="T:System.ArgumentException">If a property is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.SetVariablesForPaths(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Sets values to variables in the package.
+            </summary>
+            <param name="pathValuePairs">List of name-value pairs where name is a variable name and value is a variable value.</param>
+            <exception cref="T:System.ArgumentException">If a variable is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.SetConnectionStrings(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            Sets connection strings to connections in the package.
+            </summary>
+            <param name="nameValuePairs">List of name-value pairs where name is a connection name and value is a connection string.</param>
+            <exception cref="T:System.ArgumentException">If a connection is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.SetConfigurationStrings(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            Sets configuration strings to configurations in the package.
+            </summary>
+            <param name="nameValuePairs">List of name-value pairs where name is a configuration name and value is a connection string.</param>
+            <exception cref="T:System.ArgumentException">If a configuration is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetVariableForPath(System.String)">
+            <summary>
+            Gets a variable.
+            </summary>
+            <param name="path">Path to the variable. For example, \[Customer Package]\[Load Customers DataFlow].[User::CustomerCount]</param>
+            <returns>Instance of DtsVariable if found in the package, otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a variable for a given path is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetVariable(System.String)">
+            <summary>
+            Gets a variable.
+            </summary>
+            <param name="name">Name of the variable to get. For example, User::CountOfProducts</param>
+            <returns>Instance of DtsVariable if found in the package, otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a variable with a given name is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetChildExecutable(System.String)">
+            <summary>
+            Gets an executable. All package containers will be recursively searched.
+            </summary>
+            <param name="path">Path to the executable. E.g. \[Customer Package]\[Load Customers DataFlow]</param>
+            <returns>Instance of DtsExecutable if found in the package, otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a child executable for a given path is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetPropertyForPath(System.String)">
+            <summary>
+            Gets a property. All package containers will be recursively searched.
+            </summary>
+            <param name="path">Path to the property. E.g. \[Customer Package].[DelayValidation]</param>
+            <returns>Instance of DtsObjectProperty if found in the package,  otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a property for a given path is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetPath">
+            <summary>
+            Gets the path to the executable relative to the root of the package.
+            </summary>
+            <returns>String representation of the path.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetConnection(System.String)">
+            <summary>
+            Gets a connection.
+            </summary>
+            <param name="name">Name of the connection to get.</param>
+            <returns>Instance of DtsConnection if found in the package, otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a property with a given name is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetConfiguration(System.String)">
+            <summary>
+            Gets a configuration.
+            </summary>
+            <param name="name">Name of the configuration to get.</param>
+            <returns>Instance of DtsConfiguration if found in the package, otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a property with a given name is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetErrors">
+            <summary>
+            Gets all errors occured during package execution.
+            </summary>
+            <returns>Read-only list of package errors.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetPrecedingConstraints">
+            <summary>
+            Gets all precedence constraints contained in a package.
+            </summary>
+            <returns>Read only collection of precedence constraints.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetPrecedingConstraintForPath(System.String)">
+            <summary>
+            Get a precedence constraint.
+            </summary>
+            <param name="path">Path to the preceding constraint.</param>
+            <returns>Instance of DtsPrecedenceConstraint if found in the packge, otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a preceding constraint for a given path is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetPrecedingConstraint(System.String)">
+            <summary>
+            Get a precedence constraint.
+            </summary>
+            <param name="name">Name of the preceding constraint to get.</param>
+            <returns>Instance of DtsPrecedenceConstraint if found in the packge, otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a preceding constraint with a given name is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.ThrowExceptionOnError">
+            <summary>
+            Throws the <see cref="T:System.InvalidOperationException"/> exception, if an error occured during the package execution. Use <see cref="M:SSIS.Test.Dts.DtsPackage.GetErrors"/> to get these errors.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetObjectId">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPackage.GetObjectName">
+            <inheritdoc/>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsPackage.IsExecutionSuccess">
+            <summary>
+            Gets a value indicating whether the package has executed successfully.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Metadata.DisableExecutableAttribute">
+            <summary>
+            Instructs the test engine to disable the executable during the execution.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Metadata.DisableExecutableAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.DisableExecutableAttribute"/> class.
+            </summary>
+            <param name="executableName">A name or a path to the executable.</param>
+        </member>
+        <member name="P:SSIS.Test.Metadata.DisableExecutableAttribute.ExecutableName">
+            <summary>
+            Gets or sets the name of a target executable to be tested.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Collections.BaseLiveTestCollection">
+            <summary>
+            List of live tests.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.TestOutcome">
+            <summary>
+            Represents the result of a test.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.TestOutcome.Failed">
+            <summary>
+            Indicates that a test has successfully executed and that assertions have failed.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.TestOutcome.Inconclusive">
+            <summary>
+            Indicates that a test has successfully executed. Result is inconclusive.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.TestOutcome.Passed">
+            <summary>
+            Indicates that a test has successfully executed and that assertions have succeded.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.TestOutcome.InProgress">
+            <summary>
+            Indicates that a test is still in progress.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.TestOutcome.Error">
+            <summary>
+            Indicates that a test has not successfully executed.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.TestOutcome.Unknown">
+            <summary>
+            Indicates unknown state of a test.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Metadata.UnitTestAttribute">
+            <summary>
+            Instructs the test engine to load a decorated class as an unit test.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Metadata.UnitTestAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.UnitTestAttribute"/> class.
+            </summary>
+            <param name="repository">A repository where a target package is loaded.</param>
+            <param name="packageName">The name of a package. See remarks for the <see cref="P:SSIS.Test.Metadata.UnitTestAttribute.PackageName"/> property.</param>
+        </member>
+        <member name="P:SSIS.Test.Metadata.UnitTestAttribute.Description">
+            <summary>
+            Gets the description of the test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.UnitTestAttribute.Repository">
+            <summary>
+            Gets the repository where a target package is loaded.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.UnitTestAttribute.PackageName">
+            <summary>
+            Gets the name of a package. If the package is loaded from the file system
+            , the name corresponds to the package file name e.g. c:\Packages\Customers.dtsx. In case when the 
+            package is loaded from Sql server, the name corresponds to the "Name" property
+             of the package. When loading from Dts server the name corresponds to the file name of the package
+             without ".dtsx" extension.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.UnitTestAttribute.ExecutableName">
+            <summary>
+            Gets or sets the name of a target executable to be tested.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.UnitTestAttribute.PrecedenceConstraintsTestOnly">
+            <summary>
+            Marks the test as a precedence constraint test only.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.UnitTestAttribute.DisableLogging">
+            <summary>
+            Disables the logging for the target package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.UnitTestAttribute.ConnectionsToRemove">
+            <summary>
+            Comma separated list of connection names that should be removed from the package.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.SetupContext">
+            <summary>
+            Provides access to the unit test context during the preparation phase.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Context">
+            <summary>
+            Provides access to the test context.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Context.#ctor(SSIS.Test.Dts.DtsPackage)">
+            <summary>
+            Creates a new instance of the <see cref="T:SSIS.Test.Context"/> class.
+            </summary>
+            <param name="package">An instance of <see cref="T:SSIS.Test.Dts.DtsPackage"/> class.</param>
+        </member>
+        <member name="P:SSIS.Test.Context.TestOutcome">
+            <summary>
+            Gets the result of the current test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Context.Package">
+            <summary>
+            Gets the target package of the test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Context.ActiveExecutable">
+            <summary>
+            Gets the executable that has been executed.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Context.DataAccess">
+            <summary>
+            Gets the data access object. Use this property to execute sql queries against database.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Context.DataTaps">
+            <summary>
+            Gets the data taps.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Context.FakeDestinations">
+            <summary>
+            Gets the fake destination captured data.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.IUnitTestEngine">
+            <summary>
+            This interface provides access to the unit testing features of the test engine. Use this interface to execute unit tests.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.LoadPackages(System.String,System.String)">
+            <summary>
+            Creates and loads repository with packages from file system or ispac package. Repository represents a named group of packages.
+            </summary>
+            <param name="repositoryName">Name of the repository. Repository name must be unique accross calls of LoadPackages.</param>
+            <param name="path">File system path where the packages reside (e.g. 'c:\MyPackages\', 'c:\MyPackages\MyIspacPackage.ispac'). All files in the given folder with extension *.dtsx are loaded.</param>
+            <returns>Count of loaded packages.</returns>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.LoadPackage(System.String,System.String)">
+            <summary>
+            Creates and loads repository with a single package from file system.
+            </summary>
+            <param name="repositoryName">Name of the repository. Repository name must be unique accross calls of LoadPackages.</param>
+            <param name="path">File system path where the package reside (e.g. 'c:\MyPackages\MyPackage.dtsx').</param>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.LoadUnitTests">
+            <summary>
+            Loads unit tests from the calling assembly. Before this method is executed, all repositories and packages that are referenced in unit tests must be loaded by using
+            <see cref="M:SSIS.Test.IUnitTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTest(System.Type)"/>
+            can be called to execute tests.
+            </summary>
+            <returns>Count of loaded unit tests.</returns>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.LoadRepositoryUnitTests(System.String)">
+            <summary>
+            Loads unit tests from the calling assembly. Before this method is executed, all repositories and packages that are referenced in unit tests must be loaded by using
+            <see cref="M:SSIS.Test.IUnitTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTest(System.Type)"/>
+            can be called to execute tests. Use this method, if you want to load tests for a specific repository only.
+            </summary>
+            <param name="repositoryName">Name of a reporsitory to load tests from.</param>
+            <returns>Count of loaded unit tests.</returns>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.LoadUnitTests(System.String)">
+            <summary>
+            Loads unit tests from the assembly. Before this method is executed, all repositories and packages that are referenced in unit tests must be loaded by using
+            <see cref="M:SSIS.Test.IUnitTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTest(System.Type)"/>
+            can be called to execute tests.
+            </summary>
+            <param name="assemblyPath">Path to an assembly on the file system that contains test implementations.</param>
+            <returns>Count of loaded unit tests.</returns>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.LoadRepositoryUnitTests(System.String,System.String)">
+            <summary>
+            Loads unit tests from the assembly. Before this method is executed, all repositories and packages that are referenced in unit tests must be loaded by using
+            <see cref="M:SSIS.Test.IUnitTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTest(System.Type)"/>
+            can be called to execute tests. Use this method, if you want to load tests for a specific repository only.
+            </summary>
+            <param name="assemblyPath">Path to an assembly on the file system that contains test implementations.</param>
+            <param name="repositoryName">Name of a reporsitory to load tests from.</param>
+            <returns>Count of loaded unit tests.</returns>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.LoadUnitTests(System.Reflection.Assembly)">
+            <summary>
+            Loads unit tests from the assembly. Before this method is executed, all repositories and packages that are referenced in unit tests must be loaded by using
+            <see cref="M:SSIS.Test.IUnitTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTest(System.Type)"/>
+            can be called to execute tests.
+            </summary>
+            <param name="assembly">A reference to an assembly that contains unit test classes.</param>
+            <returns>Count of loaded unit tests.</returns>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.LoadRepositoryUnitTests(System.Reflection.Assembly,System.String)">
+            <summary>
+            Loads unit tests from the assembly. Before this method is executed, all repositories and packages that are referenced in unit tests must be loaded by using
+            <see cref="M:SSIS.Test.IUnitTestEngine.LoadPackages(System.String,System.String)"/> or <see cref="M:SSIS.Test.IUnitTestEngine.LoadPackage(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTest(System.Type)"/>
+            can be called to execute tests. Use this method, if you want to load tests for a specific repository only.
+            </summary>
+            <param name="assembly">A reference to an assembly that contains unit test classes.</param>
+            <param name="repositoryName">Name of a reporsitory to load tests from.</param>
+            <returns>Count of loaded unit tests.</returns>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.LoadUnitTest(System.Type)">
+            <summary>
+            Loads a unit test from the assembly. Before this method is executed, all repositories and packages that are referenced in unit tests must be loaded by using
+            <see cref="M:SSIS.Test.IUnitTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTest(System.Type)"/>
+            can be called to execute tests. Use this method to load a single specific test. Repository is derived from the test's declaration.
+            </summary>
+            <param name="testClass">Class that implements the target test.</param>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTests">
+            <summary>
+            Executes unit tests that are previously loaded by <see cref="M:SSIS.Test.IUnitTestEngine.LoadUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.LoadUnitTests(System.String)"/>.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTest(System.Type)">
+            <summary>
+            Executes a particular unit test that is previously loaded by <see cref="M:SSIS.Test.IUnitTestEngine.LoadUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.LoadUnitTests(System.String)"/>.
+            </summary>
+            <param name="testClass">Class that implements the target test.</param>
+            <returns>Result of the unit test.</returns>
+        </member>
+        <member name="M:SSIS.Test.IUnitTestEngine.Abort">
+            <summary>
+            Stops the execution of unit tests.
+            </summary>
+        </member>
+        <member name="E:SSIS.Test.IUnitTestEngine.TestStarted">
+            <summary>
+            Occurs when one unit test has started. Result is not available at this point.
+            </summary>
+        </member>
+        <member name="E:SSIS.Test.IUnitTestEngine.TestFinished">
+            <summary>
+            Occurs when one unit test has finished and result is available.
+            </summary>
+        </member>
+        <member name="E:SSIS.Test.IUnitTestEngine.EngineStateChanged">
+            <summary>
+            Occurs when state changes.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.IUnitTestEngine.EngineState">
+            <summary>
+            Gets the current state of test engine.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.IUnitTestEngine.UnitTestResults">
+            <summary>
+            Gets a read-only collection of unit test results. This collection is populated after the <see cref="M:SSIS.Test.IUnitTestEngine.ExecuteUnitTests"/> method has executed successfully.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.IUnitTestEngine.UnitTests">
+            <summary>
+            Gets a read-only collection of unit tests. This collection is populated after the <see cref="M:SSIS.Test.IUnitTestEngine.LoadUnitTests"/> or <see cref="M:SSIS.Test.IUnitTestEngine.LoadUnitTests(System.String)"/> methods have executed successfully.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.IUnitTestEngine.TestsCoverage">
+            <summary>
+            Gets a read-only collection of test coverage info for repositories and packages.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Metadata.ActionClassAttribute">
+            <summary>
+            Instructs the test engine to load a decorated class and its methods as live tests.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Metadata.ActionClassAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.ActionClassAttribute"/> class.
+            </summary>
+            <param name="repository">A repository where a target package is loaded.</param>
+            <param name="packageName">The name of a package. See remarks for the <see cref="P:SSIS.Test.Metadata.ActionClassAttribute.PackageName"/> property.</param>
+        </member>
+        <member name="P:SSIS.Test.Metadata.ActionClassAttribute.Repository">
+            <summary>
+            Gets a repository where a target package is loaded.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.ActionClassAttribute.PackageName">
+            <summary>
+            Gets the name of a package. If the package is loaded from the file system
+            , the name corresponds to the package file name e.g. c:\Packages\Customers.dtsx. In case when the 
+            package is loaded from Sql server, the name corresponds to the "Name" property
+             of the package. When loading from Dts server the name corresponds to the file name of the package
+             without ".dtsx" extension.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Configuration.SsisTesterConfiguration">
+            <summary>
+            Represents a special SSISTester section within a configuration file. 
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Configuration.SsisTesterConfiguration.LineageMappings">
+            <summary>
+            Gets or sets the collection of <see cref="T:SSIS.Test.Configuration.LineageMappingElement"/>.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.BaseTest">
+            <summary>
+            This is the base class for all test types.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.BaseTest.#ctor">
+            <summary>
+            <see cref="T:SSIS.Test.BaseTest"/> class is abstract. Call this constructor from
+            a derived class to properly initialize the instance.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseTest.Id">
+            <summary>
+            Gets the system generated id of the test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseTest.TestName">
+            <summary>
+            Gets the name of the class which implements the test.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.ExecutionParameters">
+            <summary>
+            This class containts variables, connections, configurations and properties that can be set when a package is executed.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.ExecutionParameters.AddProperty(System.String,System.Object)">
+            <summary>
+            Adds variable to collection.
+            </summary>
+            <param name="path">Path to the variable in the package. For example, \[Customer Package]\[Load Customers DataFlow].[Disable]</param>
+            <param name="value">Value of a property.</param>
+        </member>
+        <member name="M:SSIS.Test.ExecutionParameters.AddVariable(System.String,System.Object)">
+            <summary>
+            Adds property to collection.
+            </summary>
+            <param name="path">Path to the property in the package. For example, \[Customer Package]\[Load Customers DataFlow].[User::CustomerCount]</param>
+            <param name="value">Value of a variable.</param>
+        </member>
+        <member name="M:SSIS.Test.ExecutionParameters.AddPackageConnectionString(System.String,System.String)">
+            <summary>
+            Adds package connection to collection.
+            </summary>
+            <param name="name">Name of a package connection.</param>
+            <param name="value">Connection string of a package connection.</param>
+        </member>
+        <member name="M:SSIS.Test.ExecutionParameters.AddConfigurationString(System.String,System.String)">
+            <summary>
+            Adds configuration to collection.
+            </summary>
+            <param name="name">Name of a configuration.</param>
+            <param name="value">Connection string of a configuration.</param>
+        </member>
+        <member name="P:SSIS.Test.ExecutionParameters.DtsVariables">
+            <summary>
+            Gets a collection of key-value pairs, where key is path to the variable and value is a value of the variable.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ExecutionParameters.DtsConnectionStrings">
+            <summary>
+            Gets a collection of key-value pairs, where key is connection name and value is a connection string used by the package connection manager.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ExecutionParameters.DtsConfigurationStrings">
+            <summary>
+            Gets a collection of key-value pairs, where key is configuration name and value is a connectionString used by the configuration.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ExecutionParameters.DtsProperties">
+            <summary>
+            Gets a collection of key-value pairs, where key is property name and value is a property value.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.EngineState">
+            <summary>
+            Represents a state of the test engine.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.EngineState.Ready">
+            <summary>
+            Engine is ready to execute tests.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.EngineState.Running">
+            <summary>
+            Engine is executing tests.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.EngineState.Finished">
+            <summary>
+            Engine has finished executing tests.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.EngineState.Aborting">
+            <summary>
+            Engine is aborting tests.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.EngineState.Aborted">
+            <summary>
+            Engine has aborted tests.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.RepositoryTestCoverage">
+            <summary>
+            Contains the information about test coverage of a repository.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.RepositoryTestCoverage.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="P:SSIS.Test.RepositoryTestCoverage.RepositoryName">
+            <summary>
+            Name of the repository.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.RepositoryTestCoverage.PackagesCoverage">
+            <summary>
+            List of test coverage details for all packages in the repository.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Configuration.LineageMappingTarget">
+            <summary>
+            Represents the target of a lineage mapping.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.Configuration.LineageMappingTarget.Input">
+            <summary>
+            Indicates that a mapping target is an input.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.Configuration.LineageMappingTarget.Output">
+            <summary>
+            Indicates that a mapping target is an output.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.Configuration.LineageMappingTarget.InputColumn">
+            <summary>
+            Indicates that a mapping target is an input column.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.Configuration.LineageMappingTarget.OutputColumn">
+            <summary>
+            Indicates that a mapping target is an output column.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.DataTap">
+            <summary>
+            This class contains the definition of a data tap and its captured data snapshots.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.DataCaptureDescriptor`1">
+            <summary>
+            Base class for all data descriptors.
+            </summary>
+            <typeparam name="T">The type of elements that are captured.</typeparam>
+        </member>
+        <member name="F:SSIS.Test.DataCaptureDescriptor`1.DataSnapshots">
+            <summary>
+            Contains captured data snapshots.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.DataCaptureDescriptor`1.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.DataCaptureDescriptor`1.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="P:SSIS.Test.DataCaptureDescriptor`1.RepositoryName">
+            <summary>
+            Gets the name of the repository where the target package resides.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.DataCaptureDescriptor`1.PackageName">
+            <summary>
+            Gets the name of the target package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.DataCaptureDescriptor`1.PackageId">
+            <summary>
+            Gets the id of the target package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.DataCaptureDescriptor`1.PathToSourceComponent">
+            <summary>
+            Gets the path of the source component in a data flow.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.DataCaptureDescriptor`1.SnapshotCount">
+            <summary>
+            Gets the count of captured data snapshots.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.DataCaptureDescriptor`1.Snapshots">
+            <summary>
+            Gets the list of captured data snapshots.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.DataTap.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.DataTap.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="P:SSIS.Test.DataTap.PathToDestinationComponent">
+            <summary>
+            Gets the path of the target component in a data flow.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.DataTap.PathName">
+            <summary>
+            Gets the name of the path that connects source and target components. If the name is not set
+            data tap is set on all paths between the two components.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.DataTap.MaxRowCount">
+            <summary>
+            Gets the maximal count of rows to capture per data snapshot.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Collections.ActionInfo">
+            <summary>
+            Contains data about action methods.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Collections.ActionInfo.ExecutablePath">
+            <summary>
+            Path to the target executable.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Collections.ActionInfo.ActionDescription">
+            <summary>
+            Description of the action.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Collections.ActionInfo.ActionMethodName">
+            <summary>
+            Name of the method that implements the action.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsPrecedenceConstraint">
+            <summary>
+            This class represents a precedence constraint. Use this class to 
+            evaluate the state of a precedence constraint.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPrecedenceConstraint.SetExecutionResult(SSIS.Test.Dts.DtsExecutionResult)">
+            <summary>
+            Sets the execution result of an executable that is preceded by this
+            constraint. Use this method to variate execution result and test the
+            state of the preceding constraint on the different results. To evaluate
+            state use <see cref="M:SSIS.Test.Dts.DtsPrecedenceConstraint.Evaluate"/> method.
+            </summary>
+            <example>
+            DtsPrecedenceConstraint pc;
+            ...
+            ...
+            ...
+            pc.SetExecutionResult(DTSExecutionResult.Success);
+            var test = pc.Evaluate();
+            Console.WriteLine("Success test: " + test);
+            
+            pc.SetExecutionResult(DTSExecutionResult.Completion);
+            test = pc.Evaluate();
+            Console.WriteLine("Completion test: " + test);
+            </example>
+            <param name="result">A value of execution result.</param>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPrecedenceConstraint.Evaluate">
+            <summary>
+            Evaluates the state of the constraint depending on the evaluation expression and the execution
+            result of the previous executable. To test constraint on different execution results use <see cref="M:SSIS.Test.Dts.DtsPrecedenceConstraint.SetExecutionResult(SSIS.Test.Dts.DtsExecutionResult)"/>.
+            </summary>
+            <returns>Returns true if the evaluation expression and/or execution result evaluate to true, otherwise false.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPrecedenceConstraint.GetObjectId">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsPrecedenceConstraint.GetObjectName">
+            <inheritdoc/>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsPrecedenceConstraint.PrecedenceExecutable">
+            <summary>
+            Gets the executable that precedes the constraint.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsPrecedenceConstraint.ConstrainedExecutable">
+            <summary>
+            Gets the executable that is constrained by this constraint.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsPrecedenceConstraint.Expression">
+            <summary>
+            Gets the expression associated with the constraint.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsExecutionResult">
+            <summary>
+            Describes the result of a task execution.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.Dts.DtsExecutionResult.Success">
+            <summary>
+            The task ran successfully.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.Dts.DtsExecutionResult.Failure">
+            <summary>
+            The task failed.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.Dts.DtsExecutionResult.Completion">
+            <summary>
+            The task ran to completion.
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.Dts.DtsExecutionResult.Canceled">
+            <summary>
+            The task was cancelled.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.UnitTestResult">
+            <summary>
+            This class contains unit test results.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.TestResult">
+            <summary>
+            This is the base class for a test result.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.TestResult.#ctor(SSIS.Test.Dts.DtsPackage,SSIS.Test.Dts.DtsExecutable,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates an instance of the <see cref="T:SSIS.Test.TestResult"/> class.
+            </summary>
+            <param name="package">An instance of the <see cref="T:SSIS.Test.Dts.DtsPackage"/> class.</param>
+            <param name="executable">An instance of the <see cref="T:SSIS.Test.Dts.DtsExecutable"/> class.</param>
+            <param name="testId">Id of the test.</param>
+            <param name="repositoryName">Name of the repository.</param>
+            <param name="testName">Name of the test.</param>
+            <param name="testDescription">Description of the test.</param>
+        </member>
+        <member name="M:SSIS.Test.TestResult.ToString">
+            <summary>
+            Creates a string representation of a test result.
+            </summary>
+            <returns>Returns the test result as a multiline string.</returns>
+        </member>
+        <member name="P:SSIS.Test.TestResult.StartedAt">
+            <summary>
+            Gets a time when the test is started.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestResult.FinishedAt">
+            <summary>
+            Gets a time when the test is finished.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestResult.TestOutcome">
+            <summary>
+            Gets a value that represents the result of a test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestResult.Exceptions">
+            <summary>
+            Gets a read-only list of exceptions caught during the test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestResult.RepositoryName">
+            <summary>
+            Gets a repository name that contains the target package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestResult.Package">
+            <summary>
+            Gets a package that was tested.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestResult.TestId">
+            <summary>
+            Gets the id of the corresponding test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestResult.TestName">
+            <summary>
+            Gets the name of a class which implements the test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestResult.TestDescription">
+            <summary>
+            Gets the description of the unit test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestResult.Executable">
+            <summary>
+            Gets a package element that was tested.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.UnitTestResult.ToString">
+            <summary>
+            Creates a string representation of a unit test result.
+            </summary>
+            <returns>Returns the test result as a multiline string.</returns>
+        </member>
+        <member name="P:SSIS.Test.UnitTestResult.IsSetupSuccess">
+            <summary>
+            Gets a value indicating whether the setup phase of a test has executed successfully.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.UnitTestResult.IsVerificationSuccess">
+            <summary>
+            Gets a value indicating whether the verification phase of a test has executed successfully.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.UnitTestResult.IsTeardownSuccess">
+            <summary>
+            Gets a value indicating whether the cleanup phase of a test has executed successfully.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Metadata.DisableLoggingAttribute">
+            <summary>
+            Instructs the test engine to disable logging in the package when performing unit test. This attribute disables logging in all target packages.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Collections.BaseUnitTestCollection">
+            <summary>
+            List of unit tests.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.VerificationContext">
+            <summary>
+            Provides access to the unit test context during the verification phase.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.ExecutableTestCoverage">
+            <summary>
+            Contains the information about test coverage of an executable.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ExecutableTestCoverage.ExecutablePath">
+            <summary>
+            Path to the executable in the package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ExecutableTestCoverage.TestsCount">
+            <summary>
+            Count of tests covering the executable.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsConfiguration">
+            <summary>
+            This class represents a configuration. Use this class to get or set value of configuration.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConfiguration.SetConfigurationString(System.String)">
+            <summary>
+            Sets a value of the underlying configuration string.
+            </summary>
+            <param name="value">A value to set.</param>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConfiguration.GetConfigurationString">
+            <summary>
+            Gets the value of the underlying configuration string.
+            </summary>
+            <returns>A string representing a value of the configuration string.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConfiguration.GetConfigurationType">
+            <summary>
+            Gets the value of the underlying configuration type.
+            </summary>
+            <returns>A string representing a value of the configuration type.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConfiguration.GetTargetObject">
+            <summary>
+            Gets the value of the underlying target object in the package.
+            </summary>
+            <returns>A string representing a path to the target object in the package.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConfiguration.GetObjectId">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConfiguration.GetObjectName">
+            <inheritdoc/>
+        </member>
+        <member name="T:SSIS.Test.Collections.PackageRepositoriesDictionary">
+            <summary>
+            Dictionary of package repositories.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.BaseUnitTest">
+            <summary>
+            This is the base class for a unit test. Inherit from this class to
+            implement a unit test.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.BaseUnitTest.Setup(SSIS.Test.SetupContext)">
+            <summary>
+            This method is called during the preparation phase of a test. It is executed
+            before the target package or executable is executed. Implement this method to prepare the test.
+            For example, create database objects or set package variables.
+            </summary>
+            <param name="context">
+            Provides access to the objects available during the preparation phase. A reference
+            to the <see cref="T:SSIS.Test.SetupContext"/> is provided by the framework during the test execution.
+            </param>
+        </member>
+        <member name="M:SSIS.Test.BaseUnitTest.Verify(SSIS.Test.VerificationContext)">
+            <summary>
+            This method is called during the verification phase of a test. It is executed
+            after the package has been executed. Implement this method to check the test results.
+            For example, check existance of rows in a table or change of variable value. 
+            </summary>
+            <param name="context">
+            Provides access to the objects available during the verification phase. A reference
+            to the <see cref="T:SSIS.Test.VerificationContext"/> is provided by the framework the during test execution.
+            </param>
+        </member>
+        <member name="M:SSIS.Test.BaseUnitTest.Teardown(SSIS.Test.TeardownContext)">
+            <summary>
+            This method is called during the cleanup phase of a test. It is executed
+            after the target package or executable has been executed and after the verification phase. Implement this method to clean up test objects.
+            For example, drop database tables or delete files. 
+            </summary>
+            <param name="context">
+            Provides access to the objects available during the cleanup phase. A reference
+            to the <see cref="T:SSIS.Test.TeardownContext"/> is provided by the framework during the test execution.
+            </param>
+        </member>
+        <member name="P:SSIS.Test.BaseUnitTest.Result">
+            <summary>
+            Gets the result of the test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseUnitTest.ExecutablePath">
+            <summary>
+            Gets the path to the target executable.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseUnitTest.PackageName">
+            <summary>
+            Gets the name of the target package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseUnitTest.RepositoryName">
+            <summary>
+            Gets the name of the repository where the target package resides.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseUnitTest.TestDescription">
+            <summary>
+            Gets the description of the unit test.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Metadata.FakeSourceAttribute">
+            <summary>
+            Instructs the test engine to create a fake source and replace the original source component
+            in a data flow.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Metadata.FakeSourceAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.FakeSourceAttribute"/> class.
+            </summary>
+            <param name="pathToSourceComponent">Name of a source component in a data flow to replace.</param>
+        </member>
+        <member name="M:SSIS.Test.Metadata.FakeSourceAttribute.#ctor(System.String,System.String[],System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.FakeSourceAttribute"/> class.
+            </summary>
+            <param name="pathToSourceComponent">Name of a source component in a data flow to replace.</param>
+            <param name="outputNames">Array of output names of the original source component.</param>
+            <param name="outputData">Array of output data. It can be comma separated value or a path to the file containing fake data.</param>
+        </member>
+        <member name="P:SSIS.Test.Metadata.FakeSourceAttribute.PathToSourceComponent">
+            <summary>
+            Gets or sets the path of the source component in a data flow.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.FakeSourceAttribute.Data">
+            <summary>
+            Gets a data for an output of the fake source. 
+            </summary>        
+        </member>
+        <member name="P:SSIS.Test.Metadata.FakeSourceAttribute.ColumnDelimiter">
+            <summary>
+            Gets or sets a delimiter for a column. For example  ',' (comma).
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.FakeSourceAttribute.RowDelimiter">
+            <summary>
+            Gets or sets a delimiter for a row. For example '\r\n' (newline).
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.EngineStateEventArgs">
+            <summary>
+            Contains the current state of the test engine instance.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.EngineStateEventArgs.State">
+            <summary>
+            Gets current engine state.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.DataTapSnapshot">
+            <summary>
+            This class contains the snapshot of data captured by data tap.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.TeardownContext">
+            <summary>
+            Provides access to the unit test context during the cleanup phase.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.ILiveTestEngine">
+            <summary>
+            This interface provides access to the live testing features of the test engine. Use this interface to execute live tests.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.LoadPackages(System.String,System.String)">
+            <summary>
+            Creates and loads repository with packages from file system or ispac package. Repository represents a named group of packages.
+            </summary>
+            <param name="repositoryName">Name of the repository. Repository name must be unique accross calls of LoadPackages.</param>
+            <param name="path">File system path where the packages reside (e.g. 'c:\MyPackages\', 'c:\MyPackages\MyIspacPackage.ispac'). All files in the given folder with extension *.dtsx are loaded.</param>
+            <returns>Count of loaded packages.</returns>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.LoadActions">
+            <summary>
+            Loads live tests from the calling assembly. Before this method is executed, all repositories and packages that are referenced in live tests must be loaded by using
+            <see cref="M:SSIS.Test.ILiveTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.ILiveTestEngine.ExecutePackage(System.String,System.String)"/>
+            can be called to execute tests.
+            </summary>
+            <returns>Count of loaded actions.</returns>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.LoadRepositoryActions(System.String)">
+            <summary>
+            Loads live tests from the calling assembly. Before this method is executed, all repositories and packages that are referenced in live tests must be loaded by using
+            <see cref="M:SSIS.Test.ILiveTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.ILiveTestEngine.ExecutePackage(System.String,System.String)"/>
+            can be called to execute tests. Use this method, if you want to load tests for a specific repository only.
+            </summary>
+            <param name="repositoryName">Name of a reporsitory to load tests from.</param>
+            <returns>Count of loaded actions.</returns>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.LoadActions(System.String)">
+            <summary>
+            Loads live tests from the calling assembly. Before this method is executed, all repositories and packages that are referenced in live tests must be loaded by using
+            <see cref="M:SSIS.Test.ILiveTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.ILiveTestEngine.ExecutePackage(System.String,System.String)"/>
+            can be called to execute tests.
+            </summary>
+            <param name="assemblyPath">Path to an assembly on the file system that contains test implementations.</param>
+            <returns>Count of loaded actions.</returns>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.LoadRepositoryActions(System.String,System.String)">
+            <summary>
+            Loads live tests from the calling assembly. Before this method is executed, all repositories and packages that are referenced in live tests must be loaded by using
+            <see cref="M:SSIS.Test.ILiveTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.ILiveTestEngine.ExecutePackage(System.String,System.String)"/>
+            can be called to execute tests. Use this method, if you want to load tests for a specific repository only.
+            </summary>
+            <param name="assemblyPath">Path to an assembly on the file system that contains test implementations.</param>
+            <param name="repositoryName">Name of a reporsitory to load tests from.</param>
+            <returns>Count of loaded actions.</returns>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.LoadActions(System.Reflection.Assembly)">
+            <summary>
+            Loads live tests from the calling assembly. Before this method is executed, all repositories and packages that are referenced in live tests must be loaded by using
+            <see cref="M:SSIS.Test.ILiveTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.ILiveTestEngine.ExecutePackage(System.String,System.String)"/>
+            can be called to execute tests.
+            </summary>
+            <param name="assembly">A reference to an assembly that contains live test classes.</param>
+            <returns>Count of loaded actions.</returns>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.LoadRepositoryActions(System.Reflection.Assembly,System.String)">
+            <summary>
+            Loads live tests from the calling assembly. Before this method is executed, all repositories and packages that are referenced in live tests must be loaded by using
+            <see cref="M:SSIS.Test.ILiveTestEngine.LoadPackages(System.String,System.String)"/>. After this method finished, <see cref="M:SSIS.Test.ILiveTestEngine.ExecutePackage(System.String,System.String)"/>
+            can be called to execute tests. Use this method, if you want to load tests for a specific repository only.
+            </summary>
+            <param name="assembly">A reference to an assembly that contains live test classes.</param>
+            <param name="repositoryName">Name of a reporsitory to load tests from.</param>
+            <returns>Count of loaded actions.</returns>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.SetExecutionParameters(SSIS.Test.ExecutionParameters)">
+            <summary>
+            Sets execution parameters (variables and connections) for a package that is executed by the <see cref="M:SSIS.Test.ILiveTestEngine.ExecutePackage(System.String,System.String)"/>. All variables and connections
+            contained in the <see cref="T:SSIS.Test.ExecutionParameters"/>, are replaced.
+            </summary>
+            <param name="parameters">Instance of <see cref="T:SSIS.Test.ExecutionParameters"/>.</param>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.ExecutePackage(System.String,System.String)">
+            <summary>
+            Executes a package.
+            </summary>
+            <param name="repositoryName">Name of the repository where the package is loaded.</param>
+            <param name="packageName">Name identifier of a package to execute. If a package is loaded from file system, the name corresponds to the package file name (e.g. MyPackageFile.dtsx).
+             If a package is loaded from dts or sql server, the name must be the same as the name under which the package is saved on dts or sql server.</param>
+        </member>
+        <member name="M:SSIS.Test.ILiveTestEngine.Abort">
+            <summary>
+            Stops the execution of live tests.
+            </summary>
+        </member>
+        <member name="E:SSIS.Test.ILiveTestEngine.TestStarted">
+            <summary>
+            Occurs when one live test has started. Result is not available at this point.
+            </summary>
+        </member>
+        <member name="E:SSIS.Test.ILiveTestEngine.TestFinished">
+            <summary>
+            Occurs when one live test has finished and result is available.
+            </summary>
+        </member>
+        <member name="E:SSIS.Test.ILiveTestEngine.EngineStateChanged">
+            <summary>
+            Occurs when state changes.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ILiveTestEngine.EngineState">
+            <summary>
+            Gets the current state of test engine.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ILiveTestEngine.LiveTestResults">
+            <summary>
+            Gets a read-only collection of live test results. This collection is populated after the <see cref="M:SSIS.Test.ILiveTestEngine.ExecutePackage(System.String,System.String)"/> method has executed successfully.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ILiveTestEngine.LiveTests">
+            <summary>
+            Gets a read-only collection of live tests. This collection is populated after the <see cref="M:SSIS.Test.ILiveTestEngine.LoadActions"/> or <see cref="M:SSIS.Test.ILiveTestEngine.LoadActions(System.String)"/> methods have executed successfully.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ILiveTestEngine.TestsCoverage">
+            <summary>
+            Gets a read-only collection of test coverage info for repositories and packages.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.ILiveTestEngine.AllErrors">
+            <summary>
+            Gets a read-only collection of all errors that occured during live tests.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Metadata.FakeDestinationAttribute">
+            <summary>
+            Instructs the test engine to create a fake destination and replace the original destination component
+            in a data flow.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Metadata.FakeDestinationAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.FakeDestinationAttribute"/> class.
+            </summary>
+            <param name="pathToDestinationComponent">Name of a destination component in a data flow to replace.</param>
+        </member>
+        <member name="P:SSIS.Test.Metadata.FakeDestinationAttribute.PathToDestinationComponent">
+            <summary>
+            Gets or sets the path of the destination component in a data flow.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.FakeDestinationAttribute.SendRowsToErrorOutput">
+            <summary>
+            Sends the rows to the default error output.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Metadata.DumpPackageAttribute">
+            <summary>
+            Instructs the test engine to dump the package.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Metadata.DumpPackageAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.DumpPackageAttribute"/> class.
+            </summary>
+            <param name="dumpPath">Path to the file where the content of the package is saved. If path equals null, then a temporary file will be created in the user's temp folder.</param>
+        </member>
+        <member name="M:SSIS.Test.Metadata.DumpPackageAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.DumpPackageAttribute"/> class with dump path equals null.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.DumpPackageAttribute.DumpPath">
+            <summary>
+            Gets or sets a path of the file where the content of the package is saved. If path equals null, then a temporary file will be created in the user's temp folder.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Collections.ActionDictionary">
+            <summary>
+            Dictionary of actions.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Collections.PackageRepositoryItem">
+            <summary>
+            Repository of packages. Each repository can contain many packages.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsVariable">
+            <summary>
+            This class represents a dts variable. Use this class to get or set value of variables.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsVariable.SetValue(System.Object)">
+            <summary>
+            Sets a value of the underlying variable.
+            </summary>
+            <param name="value">A value to set.</param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsVariable.GetValue">
+            <summary>
+            Gets the value of the underlying variable. If <see cref="P:SSIS.Test.Dts.DtsVariable.EvaluateAsExpression"/> is true value will be evaluated from expression set by the <see cref="M:SSIS.Test.Dts.DtsVariable.SetExpression(System.String,System.String)"/> method.
+            </summary>
+            <returns>An object representing a value of the underlying variable.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsVariable.GetExpression(System.String)">
+            <summary>
+            Gets an expression that is assigned to the variable.
+            </summary>
+            <param name="propertyName">This parameter is ignored.</param>
+            <returns>Returns a string that contains the expression. Null means that no expression has been assigned.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsVariable.SetExpression(System.String,System.String)">
+            <summary>
+            Assigns the specified expression to the variable. Specify null to remove an existing expression from the property.
+            </summary>
+            <param name="propertyName">This parameter is ignored.</param>
+            <param name="expression">The expression.</param>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsVariable.GetObjectId">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsVariable.GetObjectName">
+            <inheritdoc/>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsVariable.EvaluateAsExpression">
+            <summary>
+            Gets or sets a value that indicates whether the variable contains an expression.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsExecutable">
+            <summary>
+            This class represents an executable that can be executed
+            on its own. Use this class to get the state of an executable after
+            the execution.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetParentPackage">
+            <summary>
+            Gets a parent package of this executable.
+            </summary>
+            <returns>An instance of DtsPackage.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetPrecedingConstraints">
+            <summary>
+            Gets all preceding constraints of the executable.
+            </summary>
+            <returns>Read only collection of precedence constraints.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetPrecedingConstraint(System.String)">
+            <summary>
+            Get a preceding constraint.
+            </summary>
+            <param name="name">Name of the preceding constraint to get.</param>
+            <returns>Instance of DtsPrecedenceConstraint if related to the executable, otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a preceding constraint with a given name is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetSucceedingConstraints">
+            <summary>
+            Gets all succeeding constraints of the executable.
+            </summary>
+            <returns>Read only collection of succeeding constraints.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetSucceedingConstraint(System.String)">
+            <summary>
+            Get a succeeding constraint.
+            </summary>
+            <param name="name">Name of the succeeding constraint to get.</param>
+            <returns>Instance of DtsPrecedenceConstraint if related to the executable, otherwise throws ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a succeeding constraint with a given name is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetVariable(System.String)">
+            <summary>
+            Gets a variable.
+            </summary>
+            <param name="name">Name of the variable to get. For example, User::CountOfProducts</param>
+            <returns>Instance of DtsVariable if found in the package, otherwise throws an ArgumentException.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetChildExecutable(System.String)">
+            <summary>
+            Gets an executable. All package containers will be recursively searched.
+            </summary>
+            <param name="path">Path to the executable. For example, \[Customer Package]\[Load Customers DataFlow]</param>
+            <returns>Instance of DtsExecutable if found in the package, otherwise throws an ArgumentException.</returns>
+            <exception cref="T:System.ArgumentException">If a child executable for a given path is not present in the package, ArgumentException is thrown.</exception>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetPath">
+            <summary>
+            Gets the path to the executable relative to the root of the package.
+            </summary>
+            <returns>String representation of the path.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.Execute">
+            <summary>
+            Executes the executable.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetObjectId">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.GetObjectName">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.AddNewUnattachedDataTap(Microsoft.SqlServer.Dts.Pipeline.Wrapper.MainPipe,Microsoft.SqlServer.Dts.Pipeline.Wrapper.IDTSComponentMetaData100@,Microsoft.SqlServer.Dts.Pipeline.Wrapper.CManagedComponentWrapper@)">
+            <summary>
+            Adds an empty data tap component to the data flow. The component is not attached to another component.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.AddNewUnattachedFakeSource(Microsoft.SqlServer.Dts.Pipeline.Wrapper.MainPipe,Microsoft.SqlServer.Dts.Pipeline.Wrapper.IDTSComponentMetaData100@,Microsoft.SqlServer.Dts.Pipeline.Wrapper.CManagedComponentWrapper@)">
+            <summary>
+            Adds an empty fake source component to the data flow. The component is not attached to another component.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsExecutable.AddNewUnattachedFakeDestination(Microsoft.SqlServer.Dts.Pipeline.Wrapper.MainPipe,Microsoft.SqlServer.Dts.Pipeline.Wrapper.IDTSComponentMetaData100@,Microsoft.SqlServer.Dts.Pipeline.Wrapper.CManagedComponentWrapper@)">
+            <summary>
+            Adds an empty fake destination component to the data flow. The component is not attached to another component.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsExecutable.IsExecutionSuccess">
+            <summary>
+            Gets a value indicating whether the executable has executed successfully.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsError">
+            <summary>
+            This class represents an error that has occured during the package execution.
+            Use this class to access additional error information.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsError.GetObjectId">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsError.GetObjectName">
+            <inheritdoc/>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsError.Description">
+            <summary>
+            Gets the error description.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Dts.DtsError.Source">
+            <summary>
+            Gets a component of the package that is the source of the error.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.DataAccess">
+            <summary>
+            This class provides access to a sql server database. Use this class to execute sql queries against a database.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.DataAccess.Finalize">
+            <summary>
+            Closes the underlying sql connection and releases other resources.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.DataAccess.OpenConnection(System.String)">
+            <summary>
+            Opens a connection to a database.
+            </summary>
+            <param name="connectionString">Valid sql server connection string.</param>
+        </member>
+        <member name="M:SSIS.Test.DataAccess.CloseConnection">
+            <summary>
+            Closes an existing database connection.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.DataAccess.ExecuteNonQuery(System.String)">
+            <summary>
+            Executes a sql statement against the connection and returns the number of rows affected.
+            </summary>
+            <param name="commandText">Sql command to execute.</param>
+            <returns>Number of rows affected by the statement.</returns>
+        </member>
+        <member name="M:SSIS.Test.DataAccess.ExecuteScalar(System.String)">
+            <summary>
+            Executes a sql statement against the connection and returns one scalar value.
+            </summary>
+            <param name="commandText">Sql command to execute.</param>
+            <returns>The first column of the first row. Other rows and columns are ignored.</returns>
+        </member>
+        <member name="M:SSIS.Test.DataAccess.ExecuteReader(System.String)">
+            <summary>
+            Executes a sql statement against the connection and returns an instance of SqlDataReader class.
+            </summary>
+            <param name="commandText">Sql command to execute.</param>
+            <returns>An instance of SqlDataReader.</returns>
+        </member>
+        <member name="P:SSIS.Test.DataAccess.IsConnected">
+            <summary>
+            Gets a value indicating whether a connection to a database has been established.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.FakeDestination">
+            <summary>
+            This class contains the definition of a fake destination and its captured data snapshots.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Configuration.LineageMappingElement">
+            <summary>
+            Represents a mapping for a lineage id. Mapping can be defined for components, inputs,
+            outputs, input columns and output columns.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Configuration.LineageMappingElement.ComponentClassId">
+            <summary>
+            Gets or sets the class id of a data flow component.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Configuration.LineageMappingElement.Target">
+            <summary>
+            Gets or sets the target of mapping. It can be 'Input', 'Output', 'InputColumn' or 'OutputColumn'.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Configuration.LineageMappingElement.PropertyName">
+            <summary>
+            Gets or sets the name of the target property. For example, for Sort component it is the SortColumnId property.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Configuration.LineageMappingElement.PropertyType">
+            <summary>
+            Gets or sets the .NET type of the target property.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Configuration.LineageMappingElement.StringFormat">
+            <summary>
+            Gets or sets the target string format. This is only valid for string propertues.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Collections.PackageLiveTestDictionary">
+            <summary>
+            Dictionary of package live tests.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Configuration.LineageMappingCollection">
+            <summary>
+            Represents the collection of <see cref="T:SSIS.Test.Configuration.LineageMappingElement"/>.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Configuration.LineageMappingCollection.CreateNewElement">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Configuration.LineageMappingCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <inheritdoc/>
+        </member>
+        <member name="P:SSIS.Test.Configuration.LineageMappingCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to get or set.</param>
+            <returns>The element at the specified index.</returns>
+        </member>
+        <member name="T:SSIS.Test.Collections.TestCoverageRepositoriesDictionary">
+            <summary>
+            Dictionary of test coverage repositories.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.EngineFactory">
+            <summary>
+            Use this class to create different instances of the test engine.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.EngineFactory.GetClassInstance``1">
+            <summary>
+            Gets a different implementation of test the engine depending on type parameter. <see cref="T:SSIS.Test.IUnitTestEngine"/> or <see cref="T:SSIS.Test.ILiveTestEngine"/> are available.
+            </summary>
+            <typeparam name="T">IUnitTestEngine or ILiveTestEngine.</typeparam>
+            <returns>An instance of the test engine.</returns>
+        </member>
+        <member name="P:SSIS.Test.EngineFactory.EngineVersion">
+            <summary>
+            Gets the current engine version eg. 1.1.0.129
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.EngineFactory.RuntimeVersion">
+            <summary>
+            Gets the current SSIS runtime version used by the engine. Eg. for SQL Server 2008 it is 2008 and so on.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Metadata.DataTapAttribute">
+            <summary>
+            Instructs the test engine to create a data tap between two components
+            in a data flow.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Metadata.DataTapAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.DataTapAttribute"/> class.
+            </summary>
+            <param name="pathToSourceComponent">Name of a source component in a data flow.</param>
+            <param name="pathToDestinationComponent">Name of a destination component in a data flow.</param>
+        </member>
+        <member name="P:SSIS.Test.Metadata.DataTapAttribute.PathToSourceComponent">
+            <summary>
+            Gets or sets the path of the source component in a data flow.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.DataTapAttribute.PathToDestinationComponent">
+            <summary>
+            Gets or sets the path of the destination component in a data flow.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.DataTapAttribute.PathName">
+            <summary>
+            Gets or sets the name of the path that connects source and target components. If the name is not set
+            data tap is set on all paths between the two components.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.DataTapAttribute.MaxRowCount">
+            <summary>
+            Gets or sets the maximum row count to process.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.BaseLiveTest">
+            <summary>
+            This is the base class for a live test. Inherit from this class to
+            implement a live test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseLiveTest.Results">
+            <summary>
+            Gets the results of all test actions.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseLiveTest.Context">
+            <summary>
+            Gets the action context of the test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseLiveTest.ActionCount">
+            <summary>
+            Gets the count of actions defined in the test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseLiveTest.ExecutablePaths">
+            <summary>
+            Gets the names of the target executables.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseLiveTest.PackageName">
+            <summary>
+            Gets the name of the target package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseLiveTest.RepositoryName">
+            <summary>
+            Gets the name of the repository where the target package resides.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.BaseLiveTest.ActionInfos">
+            <summary>
+            Gets the action infos.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Dts.DtsConnection">
+            <summary>
+            This class represents a connection. Use this class to set or get connection
+            string.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConnection.SetConnectionString(System.String)">
+            <summary>
+            Sets a connection string to the underlying connection.
+            </summary>
+            <param name="value">A string value representing a connection string.</param>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConnection.GetConnectionString">
+            <summary>
+            Gets a connection string used by the underlying connection.
+            </summary>
+            <returns>A string representation of the used connection string.</returns>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConnection.GetObjectId">
+            <inheritdoc/>
+        </member>
+        <member name="M:SSIS.Test.Dts.DtsConnection.GetObjectName">
+            <inheritdoc/>
+        </member>
+        <member name="T:SSIS.Test.PackageTestCoverage">
+            <summary>
+            Contains the information about test coverage of a package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.PackageTestCoverage.PackageName">
+            <summary>
+            Name of the package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.PackageTestCoverage.TestsCount">
+            <summary>
+            Count of tests covering all executables in the package and the package itself.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.PackageTestCoverage.TestsCoverage">
+            <summary>
+            Test coverage as the percent. It is the relative number of all executables with at least one tests to all executables in the package.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.PackageTestCoverage.ExecutablesCoverage">
+            <summary>
+            List of test coverage details for all executables in the repository.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.LiveTestResult">
+            <summary>
+            This class contains live test results.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.FakeDestinationSnapshot">
+            <summary>
+            This class contains the snapshot of data captured by fake destination.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.ActionContext">
+            <summary>
+            Use this class to access live test context.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Metadata.ActionMethodAttribute">
+            <summary>
+            Instructs the test engine to load a decorated method as a live test.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Metadata.ActionMethodAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SSIS.Test.Metadata.ActionMethodAttribute"/> class.
+            </summary>
+            <param name="executableName">Name of a target executable to be tested.</param>
+        </member>
+        <member name="P:SSIS.Test.Metadata.ActionMethodAttribute.Description">
+            <summary>
+            Gets the description of the action method.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Metadata.ActionMethodAttribute.ExecutableName">
+            <summary>
+            Gets the name of a target executable to be tested.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.TestEventArgs`2">
+            <summary>
+            Contains a test.
+            </summary>
+            <typeparam name="T">Can be either BaseUnitTest or BaseLiveTest</typeparam>
+            <typeparam name="TU">Can be either UnitTestResult or LiveTestResult</typeparam>
+        </member>
+        <member name="P:SSIS.Test.TestEventArgs`2.Test">
+            <summary>
+            Unit or live test.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.TestEventArgs`2.TestResult">
+            <summary>
+            Current test result. Unit tests can have only one result. Live tests can have multiple results 
+            depending on the count of actions. In case of live tests TestResult points to the current test result.
+            </summary>
+        </member>
+    </members>
+</doc>

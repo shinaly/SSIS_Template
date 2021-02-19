@@ -1,0 +1,535 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SSIS.Test.Report</name>
+    </assembly>
+    <members>
+        <member name="T:SSIS.Test.Report.ErrorView">
+            <summary>
+            Interaktionslogik für ErrorView.xaml
+            </summary>
+            <summary>
+            ErrorView
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.ErrorView.#ctor">
+            <summary>
+            Initialized an ErrorView instance.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.ErrorView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="F:SSIS.Test.Report.FastObservableCollection`1._suspendCollectionChangeNotification">
+            <summary>
+            This private variable holds the flag to
+            turn on and off the collection changed notification.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.FastObservableCollection`1.#ctor">
+            <summary>
+            Initializes a new instance of the FastObservableCollection class.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.FastObservableCollection`1.AddItems(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            This method adds the given generic list of items
+            as a range into current collection by casting them as type T.
+            It then notifies once after all items are added.
+            </summary>
+            <param name="items">The source collection.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.FastObservableCollection`1.NotifyChanges">
+            <summary>
+            Raises collection change event.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.FastObservableCollection`1.RemoveItems(System.Collections.IList)">
+            <summary>
+            This method removes the given generic list of items as a range
+            into current collection by casting them as type T.
+            It then notifies once after all items are removed.
+            </summary>
+            <param name="items">The source collection.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.FastObservableCollection`1.ResumeCollectionChangeNotification">
+            <summary>
+            Resumes collection changed notification.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.FastObservableCollection`1.SuspendCollectionChangeNotification">
+            <summary>
+            Suspends collection changed notification.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.FastObservableCollection`1.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            This collection changed event performs thread safe event raising.
+            </summary>
+            <param name="e">The event argument.</param>
+        </member>
+        <member name="E:SSIS.Test.Report.FastObservableCollection`1.CollectionChanged">
+            <summary>
+            This event is overriden CollectionChanged event of the observable collection.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Report.Html">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Html.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Html.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Html.ReportHtmlPage">
+             <summary>
+               Looks up a localized string similar to &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+            &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+            &lt;head&gt;
+            &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+            &lt;title&gt;{{[[title]]}}&lt;/title&gt;
+            
+            &lt;style type=&quot;text/css&quot;&gt;
+            #mask{ 
+                position:absolute;
+                top:0px;
+                left:0px;
+                height:100%;
+                width:100%;
+                display:none;    
+                background-color: black; 
+            }
+            .modal_window{
+                position:absolute;
+                display:no [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="T:SSIS.Test.Report.Strings">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.All_Errors">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die All Errors ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Copy_To_Clipboard">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Copy To Clipboard ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Details">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Details ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Errors">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Errors ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Exceptions">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Exceptions ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Executable_Name">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Executable Path ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Executions">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Executions ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.finished">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die finished ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Finished_At">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Finished At ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Move_Down">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Move Down ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Move_Up">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Move Up ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Msg_Allowing_Graceful_Stop">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Allowing 300 seconds for graceful stop... ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Msg_Show_Errors">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Opens errors in new window. ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Msg_Show_Html_Report">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Opens test results in browser. ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Msg_Stop_Success">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Tests have successfully been stoped. ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Package_Errors">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Package Errors ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Package_Name">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Package Name ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.passed">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die passed ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Repository_Name">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Repository Name ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Setup_Status">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Setup Status ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Show_All">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Show All ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Show_Error">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Show Error ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Show_Errors">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Show Errors ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Show_Failed">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Show Failed ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Show_Inconclusive">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Show Inconclusive ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Show_InProgress">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Show InProgress ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Show_Passed">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Show Passed ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Show_Unknown">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Show Unknown ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Started_At">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Started At ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Status">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Status ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Stop_All">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Stop All ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Teardown_Status">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Teardown Status ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Test_Count">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Test Count ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Test_Coverage">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Test Coverage ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Test_Description">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Test Description ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Test_Monitor">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Test Monitor ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Test_Name">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Test Name ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Test_Outcome">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Test Outcome ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Test_Results">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Test Results ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Tooltip_Executable_Coverage">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Total number of tests covering this executable is {0}. ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Tooltip_Package_Coverage">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Total number of executables in the package is {0}. Total number of tests covering this package is {1}. Total test coverage is {2}. ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Tooltip_Repository_Coverage">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Total number of packages in the repository is {0}. ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Trial_Message">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die You are using the trial version of SSISTester. ähnelt.
+            </summary>
+        </member>
+        <member name="P:SSIS.Test.Report.Strings.Verification_Status">
+            <summary>
+              Sucht eine lokalisierte Zeichenfolge, die Verification Status ähnelt.
+            </summary>
+        </member>
+        <member name="T:SSIS.Test.Report.TestEngineExtensions">
+            <summary>
+            A collection of extension methods for test engine.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ExecuteLiveTestsWithGui(SSIS.Test.ILiveTestEngine,System.String,System.String)">
+            <summary>
+            Executes a package and starts gui monitor.
+            </summary>
+            <param name="engine">An instance of ILiveTestEngine.</param>
+            <param name="repositoryName">Name of the repository where the package is loaded.</param>
+            <param name="packageName">Name identifier of a package to execute. If a package is loaded from file system, the name corresponds to the package file name (e.g. MyPackageFile.dtsx).
+             If a package is loaded from dts or sql server, the name must be the same as the name under which the package is saved on dts or sql server.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ExecuteUnitTestsWithGui(SSIS.Test.IUnitTestEngine)">
+            <summary>
+            Executes unit tests and starts gui monitor.
+            </summary>
+            <param name="engine">An instance of IUnitTestEngine.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.SaveTestResultsAndCoverageAsHtml(SSIS.Test.IUnitTestEngine,System.String)">
+            <summary>
+            Saves the result and coverage of unit tests into a file.
+            </summary>
+            <param name="engine">An instance of IUnitTestEngine.</param>
+            <param name="path">Path to a file where data is saved. Any existing file will be overwriten.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.SaveTestResultsAndCoverageAsHtml(SSIS.Test.ILiveTestEngine,System.String)">
+            <summary>
+            Saves the result and coverage of live tests into a file.
+            </summary>
+            <param name="engine">An instance of ILiveTestEngine.</param>
+            <param name="path">Path to a file where data is saved. Any existing file will be overwriten.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.SaveTestResultsAsHtml(SSIS.Test.IUnitTestEngine,System.String)">
+            <summary>
+            Saves the result of unit tests into a file.
+            </summary>
+            <param name="engine">An instance of IUnitTestEngine.</param>
+            <param name="path">Path to a file where data is saved. Any existing file will be overwriten.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.SaveTestResultsAsHtml(SSIS.Test.ILiveTestEngine,System.String)">
+            <summary>
+            Saves the result of live tests into a file.
+            </summary>
+            <param name="engine">An instance of ILiveTestEngine.</param>
+            <param name="path">Path to a file where data is saved. Any existing file will be overwriten.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.SaveTestCoverageAsHtml(SSIS.Test.IUnitTestEngine,System.String)">
+            <summary>
+            Saves the coverage of unit tests into a file.
+            </summary>
+            <param name="engine">An instance of IUnitTestEngine.</param>
+            <param name="path">Path to a file where data is saved. Any existing file will be overwriten.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.SaveTestCoverageAsHtml(SSIS.Test.ILiveTestEngine,System.String)">
+            <summary>
+            Saves the coverage of live tests into a file.
+            </summary>
+            <param name="engine">An instance of ILiveTestEngine.</param>
+            <param name="path">Path to a file where data is saved. Any existing file will be overwriten.</param>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestResultsAndCoverageToHtmlPage(SSIS.Test.IUnitTestEngine)">
+            <summary>
+            Converts unit test results and coverage to a html page.
+            </summary>
+            <param name="engine">An instance of IUnitTestEngine.</param>
+            <returns>Html string representing page.</returns>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestResultsAndCoverageToHtmlPage(SSIS.Test.ILiveTestEngine)">
+            <summary>
+            Converts live test results and coverage to a html page.
+            </summary>
+            <param name="engine">An instance of ILiveTestEngine.</param>
+            <returns>Html string representing page.</returns>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestResultsToHtmlPage(SSIS.Test.IUnitTestEngine)">
+            <summary>
+            Converts unit test results to a html page.
+            </summary>
+            <param name="engine">An instance of IUnitTestEngine.</param>
+            <returns>Html string representing page.</returns>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestResultsToHtmlPage(SSIS.Test.ILiveTestEngine)">
+            <summary>
+            Converts live test results to a html page.
+            </summary>
+            <param name="engine">An instance of ILiveTestEngine.</param>
+            <returns>Html string representing page.</returns>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestCoverageToHtmlPage(SSIS.Test.IUnitTestEngine)">
+            <summary>
+            Converts unit tests coverage to a html page.
+            </summary>
+            <param name="engine">An instance of IUnitTestEngine.</param>
+            <returns>Html string representing page.</returns>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestCoverageToHtmlPage(SSIS.Test.ILiveTestEngine)">
+            <summary>
+            Converts live tests coverage to a html page.
+            </summary>
+            <param name="engine">An instance of ILiveTestEngine.</param>
+            <returns>Html string representing page.</returns>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestResultsToHtmlTable(SSIS.Test.IUnitTestEngine)">
+            <summary>
+            Converts unit test results to a html table.
+            </summary>
+            <param name="engine">An instance of IUnitTestEngine.</param>
+            <returns>Html string representing table.</returns>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestResultsToHtmlTable(SSIS.Test.ILiveTestEngine)">
+            <summary>
+            Converts live test results to a html table.
+            </summary>
+            <param name="engine">An instance of ILiveTestEngine.</param>
+            <returns>Html string representing table.</returns>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestsCoverageToHtmlTable(SSIS.Test.IUnitTestEngine)">
+            <summary>
+            Converts unit tests coverage to a html table.
+            </summary>
+            <param name="engine">An instance of IUnitTestEngine.</param>
+            <returns>Html string representing table.</returns>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineExtensions.ConvertTestsCoverageToHtmlTable(SSIS.Test.ILiveTestEngine)">
+            <summary>
+            Converts live tests coverage to a html table.
+            </summary>
+            <param name="engine">An instance of ILiveTestEngine.</param>
+            <returns>Html string representing table.</returns>
+        </member>
+        <member name="T:SSIS.Test.Report.TestEngineDashboard">
+            <summary>
+            Dashboard for running tests. Use this window to see see running
+            parameters of test engine.
+            </summary>
+            <summary>
+            TestEngineDashboard
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineDashboard.#ctor">
+            <summary>
+            Creates new instance of the <see cref="T:SSIS.Test.Report.TestEngineDashboard"/> class.
+            </summary>
+        </member>
+        <member name="M:SSIS.Test.Report.TestEngineDashboard.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

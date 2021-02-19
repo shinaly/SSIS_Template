@@ -1,0 +1,17 @@
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\SSIS.Test.Template.exe.config
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\SSIS.Test.Template.exe
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\SSIS.Test.Template.pdb
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\SSIS.Test.dll
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\SSIS.Test.Report.dll
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\SSIS.Test.xml
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\bin\x86\Debug\SSIS.Test.Report.xml
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\obj\x86\Debug\SSIS.Test.Template.csproj.CoreCompileInputs.cache
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\obj\x86\Debug\SSIS.Test.Template.csproj.CopyComplete
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\obj\x86\Debug\SSIS.Test.Template.exe
+C:\Users\AdminUser\Desktop\SCRATCH\ssistester (1)\sourceCode\ssistester\Sample_Project_SSIS_2014\obj\x86\Debug\SSIS.Test.Template.pdb

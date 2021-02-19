@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D9F9941D-2AF3-478B-A0A8-31D19532CEE9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SSIS.Test.Template</RootNamespace>
+    <AssemblyName>SSIS.Test.Template</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SQL2012;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SQL2012</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SQL2012;</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;SQL2012</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SQL2012;</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;SQL2012</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter">
+      <HintPath>..\..\..\..\..\ALL_New\Sample_Project_SSIS_2016\References\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices">
+      <HintPath>..\..\..\..\..\ALL_New\Sample_Project_SSIS_2016\References\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface">
+      <HintPath>..\..\..\..\..\ALL_New\Sample_Project_SSIS_2016\References\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="SSIS.Test, Version=0.9.5.15, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Binaries\SSIS.Test.dll</HintPath>
+    </Reference>
+    <Reference Include="SSIS.Test.Report, Version=0.9.5.15, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Binaries\SSIS.Test.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Demo\Packages\CopyCustomers.dtsx" />
+    <None Include="Demo\Packages\CopyCustomers2.dtsx" />
+    <None Include="Demo\Packages\CopyCustomers3.dtsx" />
+    <None Include="Demo\Packages\CopyCustomers4.dtsx" />
+    <None Include="Demo\Packages\CopyCustomersWithConfig.dtsx" />
+    <None Include="Demo\Packages\CopyCustomersWithParameter.dtsx" />
+    <None Include="Demo\Packages\Demo.ispac" />
+    <None Include="Demo\Packages\LoadCustomers.dtsx" />
+    <None Include="Demo\Packages\Loop.dtsx" />
+    <None Include="Demo\Packages\LoopWithDataFlow.dtsx" />
+    <None Include="Demo\Packages\Main.dtsx" />
+    <None Include="Demo\Packages\MainWithDataFlow.dtsx" />
+    <None Include="Demo\Packages\MainWithParameter.dtsx" />
+    <None Include="Demo\Packages\Parent.dtsx" />
+    <None Include="Help\SSISTestHelp.chm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Demo\Constants.cs" />
+    <Compile Include="Demo\LiveTests\CopyCustomers.cs" />
+    <Compile Include="Demo\LiveTests\CopyCustomersWithConfig.cs" />
+    <Compile Include="Demo\LiveTests\CopyCustomersWithoutDataTaps.cs" />
+    <Compile Include="Demo\LiveTests\LoadCustomersFromIspac.cs" />
+    <Compile Include="Demo\LiveTests\LoadCustomersFakeData.cs" />
+    <Compile Include="Demo\LiveTests\LoadCustomers.cs" />
+    <Compile Include="Demo\LiveTests\Loop.cs" />
+    <Compile Include="Demo\LiveTests\MainWithDataFlow.cs" />
+    <Compile Include="Demo\LiveTests\ParentChildPackages.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAll.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAll2.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAll3.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAll4.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAllDataTaps.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileCopy.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileEvent.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileTransform.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAllFakeSource.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAllFakeDestination.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAllFakeSourceAndFakeDestination.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAll4FakeDestination.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersFileAll3FakeDestination.cs" />
+    <Compile Include="Demo\UnitTests\CopyCustomersWithConfigFileAll.cs" />
+    <Compile Include="Demo\UnitTests\LoadCustomersPackageFakeDestination.cs" />
+    <Compile Include="Demo\UnitTests\LoadCustomersCheckScript.cs" />
+    <Compile Include="Demo\UnitTests\LoadCustomersConstraints.cs" />
+    <Compile Include="Demo\UnitTests\LoadCustomersCount.cs" />
+    <Compile Include="Demo\UnitTests\LoadCustomersLoad.cs" />
+    <Compile Include="Demo\UnitTests\LoadCustomersPackage.cs" />
+    <Compile Include="Demo\UnitTests\LoadCustomersTruncate.cs" />
+    <Compile Include="Demo\UnitTests\LoopWithDataFlow.cs" />
+    <Compile Include="Demo\UnitTests\LoopWithDataFlow2.cs" />
+    <Compile Include="Demo\UnitTests\MainWithParameter.cs" />
+    <Compile Include="LiveTests\LiveTestImplmentation1.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SsisUnitTestAdapter.cs" />
+    <Compile Include="TestRunner.cs" />
+    <Compile Include="UnitTests\UnitTestImplementation1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\CopyCustomers.dtsConfig" />
+    <Content Include="Files\Customers.txt" />
+    <Content Include="Files\DemoDb.sql" />
+    <Content Include="Files\CustomersWithError.txt" />
+    <Content Include="Files\NewCustomers.txt" />
+    <Content Include="Files\Products.txt" />
+    <Content Include="Files\SSIS.Test.dll" />
+    <Content Include="Files\SSIS.Test.Report.dll" />
+    <Content Include="Files\SSIS.Test.Report.XML" />
+    <Content Include="Files\SSIS.Test.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\Destination\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
